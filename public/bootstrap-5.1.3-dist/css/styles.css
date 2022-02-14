@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* HEADER */
+
+.container {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#nav-principal {
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.nav-item {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#tituloPag {
+    margin-left: 5px;
+}
+
+#criarNota {
+    border: none;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+#criarNota:hover {
+    background-color: green;
+    color: white;
+}
+
+/* INDEX */
+
+#startNotas {
+    font-size: 44px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;   
+}
+
+#listaNotas {
+    font-size: 24px;
+    align-items: center;
+    text-align: center;
+    margin: 40px 40px;   
+}
+
+th {
+    font-size: 20px;
+}
+
+table {
+    display: inline-table;
+    justify-content: space-around;
+}
+
+/* FOOTER */
+
+#container-footer {
+    margin-top: 120px;
+    align-items: center;
+    text-align: center;
+}
+
+a#linkFooter {
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+a#linkFooter:hover {
+    background-color: #f8f9fa;
+    color: green;
+}
+
+/* DISPLAY */
+
+#form-display {
+    margin-top: 16px;
+}
+
+#titles-display {
+    font-size: 16px;
+    padding: 6px;
+}
+
+/* VISUALIZAR */
+
+#title-visualizar {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#botao-cancelar-view {
+    text-align: center;
+    align-items: center;
+    margin-left: 37%;
+    margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+<%- include("_header") -%>
+
+<h1 id="startNotas">Aqui estarão todas as notas!</h1>
+<h1 id="listaNotas">Lista das Notas (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Contéudo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const notes of model) { %>
+        <tr>
+          <td><%= notes.title %></td>
+          <td><%= notes.corpo %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/<%= notes.note_id %>/edit">Editar</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= notes.note_id %>">Excluir</a>
+            <a class="btn btn-sm btn-primary" href="/visualizar/<%= notes.note_id %>">Ver mais</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>

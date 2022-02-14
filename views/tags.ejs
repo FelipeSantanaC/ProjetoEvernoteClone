@@ -1,0 +1,17 @@
+<%- include("_header") -%>
+
+<h1>Lista das Tags</h1>
+
+<p>Aqui estarão a lista de todas as tags criadas</p>
+
+<ul>
+
+  <% for (const tags of model) { %>
+    <li>
+      <a href="#"><%= tags.nome%></a>
+    </li>
+  <% } %>
+
+</ul>
+
+<%- include("_footer") -%>

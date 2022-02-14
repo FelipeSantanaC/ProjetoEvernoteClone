@@ -1,0 +1,35 @@
+<div class="form-group row">
+    <label class="col-form-label col-sm-2" for="title">Título</label>
+    <div class="col-sm-8">
+      <input autofocus class="form-control" name="title" value="<%= model.title %>" />
+    </div>
+  </div>
+  
+<div class="form-group row">
+    <label class="col-form-label col-sm-2" for="corpo">Conteúdo</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" cols="20" name="corpo" maxlength="32000" rows="7"><%= model.corpo %></textarea>
+    </div>
+  </div>
+ 
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="category_id">Categoria</label>
+    <div class="col-sm-8">
+      <select class="form-control" name="category_id">
+        <option value="1">to do</option>
+        <option value="2">doing</option>
+        <option value="3">done</option>
+    </select>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="category_id">Tags</label>
+    <div class="form-check form-check-inline col-3">
+      <input class="form-check-input" type="checkbox" name="tags" value="1">
+      <label class="form-check-label">
+          angular
+      </label>
+  </div>
+    </div>
+  </div>  

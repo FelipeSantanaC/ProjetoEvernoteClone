@@ -1,0 +1,17 @@
+<%- include("_header") -%>
+
+<h1>Lista das Categorias</h1>
+
+<p>Aqui estarão a lista de todas as categorias criadas</p>
+
+<ul>
+
+  <% for (const categories of model) { %>
+    <li>
+      <a href="/categories/:id"><%= categories.nome%></a>
+    </li>
+  <% } %>
+
+</ul>
+
+<%- include("_footer") -%>

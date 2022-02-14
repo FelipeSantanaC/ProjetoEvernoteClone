@@ -1,0 +1,19 @@
+<%- include("_header") -%>
+
+<h1 id="title-visualizar">Visualizando uma Nota</h1>
+
+<form action="/visualizar/<%= model.note_id %>" method="post">
+  <div class="form-horizontal">
+
+    <%- include("_display") -%>
+
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2"></label>
+      <div class="col-sm-10">
+        <a id="botao-cancelar-view" class="btn btn-outline-dark cancel" href="/">Voltar</a>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%- include("_footer") -%>
