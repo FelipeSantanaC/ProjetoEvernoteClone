@@ -78,8 +78,8 @@ app.get("/:id/edit", (req, res) => {
 
 app.post("/:id/edit", (req, res) => {
   const id = req.params.id;
-  const note = [req.body.title, req.body.corpo, id];
-  const sql = "UPDATE notes SET title = $1, corpo = $2, updated_at = current_timestamp WHERE note_ID = $3";
+  const note = [req.body.category_id, req.body.title, req.body.corpo, id];
+  const sql = "UPDATE notes SET category_id = $1, title = $2, corpo = $3, updated_at = current_timestamp WHERE note_ID = $4";
   pool.query(sql, note, (err, result) => {
     if (err) {
       return console.error(err.message);

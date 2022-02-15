@@ -113,3 +113,133 @@ a#linkFooter:hover {
     margin-left: 37%;
     margin-top: 20px;
 }
+
+/* DELETAR */
+
+#title-deletar {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#excluir-cancelar {
+    margin-top: 20px;
+    margin-left: 43%;
+}
+
+/* EDITOR */
+
+#form-editor {
+    margin-top: 16px;
+}
+
+#titles-editor {
+    font-size: 16px;
+    padding: 6px;
+}
+
+/* EDIT */
+
+#title-edit {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#atualizar-cancelar {
+    margin-top: 20px;
+    margin-left: 42.5%;
+}
+
+/* CREATE */
+
+#title-create {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#criar-cancelar {
+    margin-top: 20px;
+    margin-left: 43%;
+}
+
+/* CATEGORIAS */
+
+#title-categorias {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#p-categorias {
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    margin: 40px 40px;
+}
+
+#relacao-categorias {
+    font-size: 18px;
+}
+
+#list-categorias {
+    margin: 6px;
+}
+
+#links-categorias {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+#links-categorias:hover {
+    background-color: green;
+    color: white;
+}
+
+
+/* TAGS */
+
+
+#title-tags {
+    align-items: center;
+    text-align: center;
+    font-size: 44px;
+    margin: 40px 40px;
+}
+
+#p-tags {
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    margin: 40px 40px;
+}
+
+#relacao-tags {
+    font-size: 18px;
+}
+
+#list-tags {
+    margin: 6px;
+}
+
+#links-tags {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+#links-tags:hover {
+    background-color: green;
+    color: white;
+}
+

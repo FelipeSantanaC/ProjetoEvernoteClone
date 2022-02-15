@@ -1,14 +1,14 @@
 <%- include("_header") -%>
 
-<h1>Lista das Categorias</h1>
+<h1 id="title-categorias">Lista das Categorias</h1>
 
-<p>Aqui estarão a lista de todas as categorias criadas</p>
+<p id="p-categorias">Aqui estarão a lista de todas as categorias criadas!</p>
 
-<ul>
+<ul id="relacao-categorias">
 
   <% for (const categories of model) { %>
-    <li>
-      <a href="/categories/:id"><%= categories.nome%></a>
+    <li id="list-categorias">
+      <a id="links-categorias" href="/categories/:id"><%= categories.nome%></a>
     </li>
   <% } %>
 

@@ -1,6 +1,6 @@
 <%- include("_header") -%>
 
-<h1>Deletando uma Nota</h1>
+<h1 id="title-deletar">Deletando uma Nota</h1>
 
 <form action="/delete/<%= model.note_id %>" method="post">
   <div class="form-horizontal">
@@ -9,7 +9,7 @@
 
     <div class="form-group row">
       <label class="col-form-label col-sm-2"></label>
-      <div class="col-sm-10">
+      <div class="col-sm-10" id="excluir-cancelar">
         <input type="submit" value="Excluir" class="btn btn-default btn-danger" />
         <a class="btn btn-outline-dark cancel" href="/">Cancelar</a>
       </div>

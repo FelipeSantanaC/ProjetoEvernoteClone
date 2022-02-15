@@ -1,14 +1,14 @@
 <%- include("_header") -%>
 
-<h1>Lista das Tags</h1>
+<h1 id="title-tags">Lista das Tags</h1>
 
-<p>Aqui estarão a lista de todas as tags criadas</p>
+<p id="p-tags">Aqui estarão a lista de todas as tags criadas!</p>
 
-<ul>
+<ul id="relacao-tags">
 
   <% for (const tags of model) { %>
-    <li>
-      <a href="#"><%= tags.nome%></a>
+    <li id="list-tags">
+      <a id="links-tags" href="#"><%= tags.nome%></a>
     </li>
   <% } %>
 
