@@ -5,7 +5,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use("/public", express.static(__dirname + "/public"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // CONFIG DO SERVIDOR
 const { Pool } = require("pg");
@@ -99,8 +99,17 @@ app.post("/create", (req, res) => {
   pool.query(sql, notes, (err, result) => {
     if (err) {
       return console.error(err.message);
+    } 
+    if (req.body.hasOwnProperty('tags')) {
+      let sql2 = 'INSERT INTO note_tag (note_id_fk, tag_id_fk) VALUES';
+      for (let i = 0; req.body.tags.length > i; i++){
+        if (i > 0) {
+          sql2 = `${sql2}, `;
+        }
+        sql2 = `${sql2} (note_id, ${req.body.tags[i]})`;
+      } 
+      //res.status(200).send({'tags':req.body.tags, 'sql':sql2, 'comprimento':req.body.tags.length});
     }
-    res.redirect("/");
   });
 });
 
