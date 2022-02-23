@@ -127,7 +127,9 @@ app.post("/delete/:id", (req, res) => {
   const id = req.params.id;
   const sql = "DELETE FROM notes WHERE note_id = $1";
   pool.query(sql, [id], (err, result) => {
-    // if (err) ...
+    if (err) {
+      return console.error(err.message);
+    }
     res.redirect("/");
   });
 });
@@ -137,7 +139,9 @@ app.get("/visualizar/:id", (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM notes WHERE note_id = $1";
   pool.query(sql, [id], (err, result) => {
-    // if (err) ...
+    if (err) {
+      return console.error(err.message);
+    }
     res.render("visualizar", { model: result.rows[0] });
   });
 });
