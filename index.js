@@ -94,21 +94,31 @@ app.get("/create", (req, res) => {
 });
 
 app.post("/create", (req, res) => {
-  const sql = "INSERT INTO Notes (category_id, title, corpo, created_at) VALUES ($1, $2, $3, current_timestamp)";
+  const sql = "INSERT INTO Notes (category_id, title, corpo, created_at) VALUES ($1, $2, $3, current_timestamp) RETURNING note_id";
   const notes = [req.body.category_id, req.body.title, req.body.corpo];
   pool.query(sql, notes, (err, result) => {
     if (err) {
       return console.error(err.message);
     } 
+    let note_id = result.rows[0].note_id;
     if (req.body.hasOwnProperty('tags')) {
       let sql2 = 'INSERT INTO note_tag (note_id_fk, tag_id_fk) VALUES';
       for (let i = 0; req.body.tags.length > i; i++){
         if (i > 0) {
           sql2 = `${sql2}, `;
-        }
-        sql2 = `${sql2} (note_id, ${req.body.tags[i]})`;
+        } 
+        sql2 = `${sql2} (${note_id}, ${req.body.tags[i]})`;
       } 
+      pool.query(sql2, (err, result) => {
+        if (err) {
+          return console.error(err.message);
+        } else {
+          res.redirect ('/');
+        }
+      }); 
       //res.status(200).send({'tags':req.body.tags, 'sql':sql2, 'comprimento':req.body.tags.length});
+    } else {
+      res.redirect ('/');
     }
   });
 });
@@ -135,13 +145,32 @@ app.post("/delete/:id", (req, res) => {
 });
 
 // VISUALIZANDO AS NOTAS
-app.get("/visualizar/:id", (req, res) => {
+app.get("/visualizar/:id", async (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM notes WHERE note_id = $1";
   pool.query(sql, [id], (err, result) => {
     if (err) {
       return console.error(err.message);
     }
-    res.render("visualizar", { model: result.rows[0] });
+    const nota = result.rows[0];
+    let categoria = null;
+    let tags = [];
+    const sql2 = "SELECT * FROM categories WHERE cat_id = $1";
+    pool.query(sql2, [nota.category_id], (err, result) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      categoria = result.rows[0];
+      const sql3 = "SELECT * from tags where tag_id in (select tag_id_fk from note_tag where note_id_fk = $1)";
+      pool.query(sql3, [nota.note_id], (err, result) => {
+        if (err) {
+          return console.error(err.message);
+        }
+        tags = result.rows;
+        nota.categoria = categoria;
+        nota.tags = tags;
+        res.render("visualizar", { model: nota });
+      });
+    });
   });
 });
